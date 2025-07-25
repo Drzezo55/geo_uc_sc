@@ -50,6 +50,76 @@ keep <- coldata$condition %in% c("Active_UC", "Control")
 df_sub <- df[, keep]
 coldata_sub <- coldata[keep, , drop = FALSE]
 
+
+#Run t-SNE (samples with similar gene expression locally, and outliers are outliers from one group only) 
+#(distance between clusters are meaningless (local))
+library(Rtsne)
+set.seed(123)  # for reproducibility
+tsne_out <- Rtsne(t(df), dims = 2, perplexity = 6)
+tsne_df <- data.frame(tsne_out$Y, condition = coldata$condition)
+colnames(tsne_df)[1:2] <- c("TSNE1", "TSNE2")
+ggplot(tsne_df, aes(x = TSNE1, y = TSNE2, color = condition)) +
+  geom_point(size = 3) +
+  labs(title = "t-SNE on RNA-seq Samples")
+
+#Run UMAP (global and local as the distance represnt true bioligical difference)
+library(uwot)
+
+umap_out <- umap(t(df), n_neighbors = 3)
+
+umap_df <- data.frame(umap_out, condition = coldata$condition)
+colnames(umap_df)[1:2] <- c("UMAP1", "UMAP2")
+
+ggplot(umap_df, aes(x = UMAP1, y = UMAP2, color = condition)) +
+  geom_point(size = 3) +
+  labs(title = "UMAP on RNA-seq Samples")
+#il-6 expression by UMAP
+tpm_mat <- as.matrix(df)  # if df_sub is TPM
+library(uwot)
+umap_out <- umap(t(tpm_mat))  # transpose: samples as rows
+
+umap_df <- data.frame(UMAP1 = umap_out[,1],
+                      UMAP2 = umap_out[,2],
+                      condition = coldata$condition)
+
+# Add IL6 expression (e.g., TPM values for IL6)
+umap_df$IL6 <- tpm_mat["IL6", colnames(tpm_mat)]
+
+ggplot(umap_df, aes(x = UMAP1, y = UMAP2, color = IL6)) +
+  geom_point(size = 3) +
+  scale_color_viridis_c() +
+  labs(title = "IL6 Expression in UMAP", color = "TPM of IL6") +
+  theme_minimal()
+library(pheatmap)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # create the desing matrix
 library(edgeR)
 library(limma)
