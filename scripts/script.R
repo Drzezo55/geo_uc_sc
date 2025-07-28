@@ -2,7 +2,7 @@
 #source("renv/activate.R")
 
 # Ensure remotes is installed and loaded (Conda will handle installation)
-if (!requireNamespace("remotes", quietly = TRUE)) {
+#if (!requireNamespace("remotes", quietly = TRUE)) {
   # This part should ideally not be reached if r-remotes is in environment.yaml
   # but as a failsafe, you could put install.packages("remotes") here.
   # For now, let's assume Conda installs it.
@@ -10,10 +10,12 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
 }
 
 # Install SeuratData from GitHub
-if (!requireNamespace("SeuratData", quietly = TRUE)) {
+#if (!requireNamespace("SeuratData", quietly = TRUE)) {
   remotes::install_github("satijalab/seurat-data")
 }
 #install.packages("Matrix")
+#install.package("dplyr")
+#install.packages("ggplot2")
 # Load required libraries
 library(Seurat)
 library(Matrix)
