@@ -144,7 +144,7 @@ heatmap_top10 <- DoHeatmap(seurat, features = top10$gene) + NoLegend()
 ggsave(filename = "output/heatmap_top10.jpg", height = 7, width = 12, plot = heatmap_top10, quality = 50)
 
 # assign
-new.cluster.ids <- c("CD8 T", "Memory CD4 T", "Naive CD4 T", "B", "NK", "CD14+ Mono", "Memory CD4 T")
+new.cluster.ids <- c("CD8 T", "Memory CD4 T", "Naive CD4 T", "B", "NK", "CD14+ Mono", "Memory CD4 T", "Memory CD4 T")
 names(new.cluster.ids) <- levels(seurat)
 seurat <- RenameIdents(seurat, new.cluster.ids)
 seurat$seurat_annotations <- Idents(seurat)
