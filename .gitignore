@@ -1,0 +1,23 @@
+# macOS system files
+.DS_Store
+
+# VS Code or RStudio hidden folders
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Cache and system folders
+.cache/
+.config/
+.local/
+.snakemake/
+
+
+# Ignore outputs
+*.log
+*.tmp
+*.sqlite
+*.zip
+*.tar.gz
+data/GSE125527_UMI_cell_table_sparse.csv

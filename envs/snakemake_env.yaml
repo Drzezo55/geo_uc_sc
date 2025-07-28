@@ -1,0 +1,75 @@
+# /Users/abdelazizawad/project/envs/snakemake_env.yaml
+name: snakemake_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-base=4.4.3 # IMPORTANT: Verify this version in your active Conda env (R --version)
+  - r-seurat=5.3.0
+  - r-stringi=1.8.7
+  - r-nlme=3.1_168=r44he0ea626_0 # <-- Use the exact version and build string
+  # Add ALL other R packages your script needs. Snakemake will ensure these are available.
+  - r-matrix
+  - r-sctransform
+  - r-patchwork
+  - r-biocmanager # If your script uses BiocManager::install, you still need this for Conda to install BiocManager
+  - r-ggplot2
+  - r-dplyr
+  - r-tidyr
+  - r-patchwork
+  - r-reticulate
+  - r-matrix
+  - r-remotes # For installing from GitHub
+  - r-nlme
+  - r-cluster
+  - r-plotly
+  - r-cowplot
+  - r-ggrepel
+  - r-ggridges
+  - r-sctransform
+  - r-rtsne
+  - r-uwot
+  - r-mass
+  - r-rocr
+  - r-kernsmooth
+  - r-data.table
+  - r-rcpp
+  - r-rcpparmadillo
+  - r-rcppeigen
+  - r-rcpphnsw
+  - r-rcppannoy
+  - r-rspectra
+  - r-irlba
+  - r-leidenbase
+  - r-spam
+  - r-dotcall64
+  - r-spatstat.utils
+  - r-spatstat.sparse
+  - r-spatstat.data
+  - r-spatstat.univar
+  - r-spatstat.geom
+  - r-spatstat.explore
+  - r-deldir
+  - r-polyclip
+  - r-spam
+  - r-magrittr
+  - r-glue
+  - r-rlang
+  - r-withr
+  - r-vctrs
+  - r-pillar
+  - r-tibble
+  - r-pkgconfig
+  - r-generics
+  - r-lifecycle
+  - r-crayon
+  - r-fs
+  - r-rappdirs
+  - r-matrixstats
+  - r-seuratobject
+  # Add system dependencies often required for R package compilation
+  # - libicu # <--- REMOVED THIS LINE
+  - clang # C/C++ compiler for macOS
+  - make
+  - compilers # General package for build tools

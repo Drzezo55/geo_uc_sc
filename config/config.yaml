@@ -1,0 +1,98 @@
+name: snakemake_env
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - r-base=4.4.3 # IMPORTANT: Use the exact R version you've installed in your snakemake_env
+  - r-seurat=5.3.0 # Or whatever version you need
+  - r-stringi=1.8.7 # Or whatever version you need
+  # Add ALL other R packages your script needs. Snakemake will ensure these are available.
+  - r-ggplot2
+  - r-dplyr
+  - r-tidyr
+  - r-patchwork
+  - r-reticulate
+  - r-matrix
+  - r-nlme
+  - r-cluster
+  - r-plotly
+  - r-cowplot
+  - r-ggrepel
+  - r-ggridges
+  - r-sctransform
+  - r-rtsne
+  - r-uwot
+  - r-mass
+  - r-rocr
+  - r-kernsmooth
+  - r-data.table
+  - r-rcpp
+  - r-rcpparmadillo
+  - r-rcppeigen
+  - r-rcpphnsw
+  - r-rcppannoy
+  - r-rspectra
+  - r-irlba
+  - r-leidenbase
+  - r-spam
+  - r-dotcall64
+  - r-spatstat.utils
+  - r-spatstat.sparse
+  - r-spatstat.data
+  - r-spatstat.univar
+  - r-spatstat.geom
+  - r-spatstat.explore
+  - r-deldir
+  - r-polyclip
+  - r-spam
+  - r-magrittr
+  - r-glue
+  - r-rlang
+  - r-withr
+  - r-vctrs
+  - r-pillar
+  - r-tibble
+  - r-pkgconfig
+  - r-generics
+  - r-lifecycle
+  - r-crayon
+  - r-fs
+  - r-rappdirs
+  - r-matrixstats
+  - r-seuratobject
+  # Add system dependencies often required for R package compilation
+  - libicu # For stringi
+  - clang # C/C++ compiler for macOS
+  - make
+  - compilers # General package for build tools
+# config/config.yaml
+
+output_files:
+  - bulk_only_genes.csv
+  - CD8_Violin_by_disease.jpg
+  - CD8_Violin_by_patient.jpg
+  - common_genes.csv
+  - DIM_PCA_500_15.jpg
+  - DIM_PCA_500.jpg
+  - DIM_PCA.jpg
+  - dim_plot_new.jpg
+  - elbowplot.jpg
+  - feature1.jpg
+  - features_in_sc_only_bydisease.jpg
+  - features_in_sc_only_bypatient.jpg
+  - final_clustering.jpg
+  - heatmap_top10.jpg
+  - PCA_plot_dim.jpg
+  - qc.jpg
+  - sc_only_genes.csv
+  - scatter_plot.jpg
+  - seurat.markers.csv
+  - UMAP_plot1.jpg
+  - variable_features.jpg
+  - violin1.jpg
+  - violin2.jpg
+
+# You can add other configuration variables here if your R script needs them, e.g.:
+# min_cells: 3
+# min_features: 200
